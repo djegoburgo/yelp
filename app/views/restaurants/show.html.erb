@@ -1,0 +1,14 @@
+<h3>Welcome on the <%= @restaurant.name %> page</h3>
+
+<h4>See our reviews : </h4>
+
+<ul>
+  <% @reviews.each do |review| %>
+  <li><%= review.rating %></li>
+  <li><%= review.content %></li>
+</ul>
+
+<% end %>
+
+<%= link_to 'write new review', new_restaurant_review_path(@restaurant) %>
+<%= link_to 'home page', restaurants_path %>

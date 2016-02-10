@@ -1,0 +1,41 @@
+<div class="title text-center" id="title-index">
+  <h3>Here are the restaurants you can find : </h3>
+</div>
+
+
+
+<div class="container">
+  <div class="row centered">
+    <table class="text-left head">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Address</th>
+          <th>Phone number</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody class = "table">
+        <% @restaurants.each do |restaurant| %>
+          <tr>
+            <td><%= restaurant.name %></td>
+            <td><%= restaurant.category %></td>
+            <td><%= restaurant.address %></td>
+            <td><%= restaurant.phone_number %></td>
+            <td><%= link_to 'Show', restaurant, {class: "btn btn-primary"} %></td>
+            <td><%= link_to 'Edit', edit_restaurant_path(restaurant), {class: "btn btn-info btn-lg"} %></td>
+            <td><%= link_to 'Destroy', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<br>
+
+<div class="new-restaurant text-center">
+  <%= link_to 'New Restaurant', new_restaurant_path, {class: "btn btn-success btn-lg"} %>
+</div>
